@@ -30,6 +30,8 @@
                 <a href="{{ route('posts.show', $post->id) }}">記事全文・コメントを見る</a>
                 <!-- {{ Html::linkRoute('posts.show', '記事全文・コメントを見る', $post->id) }} -->
                 <!-- 上記のような書き方もできる -->
+                <!-- routeに関する記事 -->
+                <!-- https://qiita.com/shizen-shin/items/2506bf789dc2b675c031 -->
             </div>
             <hr>
         @endforeach
