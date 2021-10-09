@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    // $fillable使い方
+    // https://mebee.info/2020/05/12/post-11098/
     protected $fillable = [
         'title',
         'body',

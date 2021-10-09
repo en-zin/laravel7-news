@@ -31,8 +31,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(
-            $request,
+
+       $request->validate(
             [
                 'title' => 'required|string|max:30',
                 'body'  => 'required|string'
@@ -69,14 +69,17 @@ class PostController extends Controller
      * 
      * 暗黙の結合
      * https://qiita.com/KyuKyu/items/07326cd2146d5cd1cb2b 
+     * https://qiita.com/KyuKyu/items/1b7359152ef174dee206
+     * 
      * 
      * view 引数 
      * https://tektektech.com/views-helper
      */
+
     public function show(Post $post)
     {
         $comments = $post->comments()->orderBy('created_at', 'desc')->get();
-
+        // Post::find($id)みたいなことを書くことなく{posts}を受け取ることができる
         return view('posts.show', [
             'post'     => $post,
             'comments' => $comments,

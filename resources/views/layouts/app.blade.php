@@ -9,8 +9,12 @@
     @section('default_css')
         <link rel="stylesheet" href="{{ asset('css/posts.css') }}">
     @show
+
+    <!-- テンプレートごとにファイルを分けている -->
+    <!-- https://laraweb.net/knowledge/179/ -->
 </head>
 <body>
+    
     @include('common.navbar')
 
     @yield('content')

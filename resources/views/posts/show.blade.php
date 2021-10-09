@@ -4,8 +4,8 @@
 
 @section('content')
     <section class="post-detail">
-        <h3 class="post-title">{!! nl2br(e($post->title)) !!}</h3>
-        <p class="post-body">{!! nl2br(e($post->body)) !!}</p>
+        <h3 class="post-title">{{($post->title)}}</h3>
+        <p class="post-body">{{($post->body)}}</p>
     </section>
     <hr>
     @include('common.validation_errors')
