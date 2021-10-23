@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Comment;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -76,10 +77,16 @@ class PostController extends Controller
      * https://tektektech.com/views-helper
      */
 
-    public function show(Post $post)
+    // public function show(Post $post)
+    public function show($id)
     {
-        $comments = $post->comments()->orderBy('created_at', 'desc')->get();
+        $post = Post::find($id);
+        $comments = Comment::where('id',$id)->orderBy('created_at', 'desc')->get();
+
+        // 暗黙の結合例
+        // $comments = $post->comments()->orderBy('created_at', 'desc')->get();
         // Post::find($id)みたいなことを書くことなく{posts}を受け取ることができる
+
         return view('posts.show', [
             'post'     => $post,
             'comments' => $comments,
